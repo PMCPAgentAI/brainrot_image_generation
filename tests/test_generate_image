@@ -1,0 +1,30 @@
+import pytest
+import sys
+import random
+from generate_image import load_template, parse_args, set_seed
+
+
+def test_load_existing_template():
+    content = load_template('artistic_style')
+    assert "{{PROMPT}}" in content
+
+
+def test_load_missing_template():
+    with pytest.raises(FileNotFoundError):
+        load_template('nonexistent_template')
+
+
+def test_parse_args(monkeypatch):
+    testargs = ['prog', '--prompt', 'hello world', '--width', '640']
+    monkeypatch.setattr(sys, 'argv', testargs)
+    args = parse_args()
+    assert args.prompt == 'hello world'
+    assert args.width == 640
+
+
+def test_set_seed_reproducibility():
+    set_seed(123)
+    seq1 = [random.randint(0,100) for _ in range(5)]
+    set_seed(123)
+    seq2 = [random.randint(0,100) for _ in range(5)]
+    assert seq1 == seq2

@@ -5,3 +5,6 @@ diffusers
 accelerate
 # Optional for faster sampling
 safetensors
+
+# Dev dependencies
+pytest
