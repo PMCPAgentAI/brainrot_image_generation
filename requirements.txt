@@ -1,0 +1,7 @@
+# Core dependencies for image generation
+torch
+transformers
+diffusers
+accelerate
+# Optional for faster sampling
+safetensors
