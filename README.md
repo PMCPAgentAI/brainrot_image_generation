@@ -1,2 +1,8 @@
 # brainrot_image_generation
-This is a mock up repository to test the capabilities of the PMCP Agent AI for the Hugging Face Hackathon
+
+A mock-up repository for testing PMCP Agent AI image generation using Hugging Face Diffusers.
+
+## Installation
+
+```bash
+pip install -r requirements.txt
